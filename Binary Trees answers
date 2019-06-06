@@ -1,0 +1,28 @@
+alternateParity
+
+private boolean alternatesParity(IntTreeNode root) {
+	if (root == null) {
+		return true;
+	} else if (root.left == null && root.right == null) {
+		return true;
+	} else {
+		boolean leftAlternates = alternatesParity(root.left);
+		boolean rightAlternates = alternatesParity(root.right);
+		if (root.left != null) {
+			if (root.data % 2 != root.left.data % 2) {
+				return leftAlternates && rightAlternates;
+			} else {
+				return false;
+			}
+		}	
+		if (root.right != null) {
+			if (root.data % 2 != root.right.data % 2) {
+				return leftAlternates && rightAlternates;
+			} else {
+				return false;
+			}
+		}	
+	}
+}
+
+
